@@ -16,7 +16,8 @@ public class AlertController {
 
     @GetMapping
     public List<Alert> getAlerts(@RequestParam(required = false) Instant since) {
-        return (since  == null) ? FlowController.alerts : FlowController.alerts.stream()
+        return (since  == null) ?
+                FlowController.alerts : FlowController.alerts.stream()
                 .filter(a -> a.getTimestamp().isAfter(since))
                 .collect(Collectors.toList());
     }

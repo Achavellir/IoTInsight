@@ -8,8 +8,6 @@ public class Flow {
     private int bytes;
     private Instant timestamp;
 
-    public Flow() {}
-
     public Flow(String srcIp, String dstIp, int bytes, Instant timestamp) {
         this.srcIp = srcIp;
         this.dstIp = dstIp;
