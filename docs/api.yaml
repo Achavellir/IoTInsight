@@ -1,0 +1,73 @@
+openapi: 3.0.3
+info:
+  title: IoTInsight API
+  version: 0.1.0
+paths:
+  /flows:
+    post:
+      summary: Ingest network flow data from edge agent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                agentId:
+                  type: string
+                  example: agent-123
+                flows:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      srcIp:
+                        type: string
+                        example: 192.168.1.10
+                      dstIp:
+                        type: string
+                        example: 8.8.8.8
+                      bytes:
+                        type: integer
+                        example: 1500
+                      timestamp:
+                        type: string
+                        format: date-time
+                        example: "2025-06-10T12:34:56Z"
+      responses:
+        '200':
+          description: Flows ingested successfully
+  /alerts:
+    get:
+      summary: Retrieve flagged anomaly alerts
+      parameters:
+        - in: query
+          name: since
+          schema:
+            type: string
+            format: date-time
+          required: false
+          description: Return alerts after this timestamp
+      responses:
+        '200':
+          description: A JSON array of alerts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    alertId:
+                      type: string
+                      example: alert-456
+                    agentId:
+                      type: string
+                      example: agent-123
+                    description:
+                      type: string
+                      example: "High outbound traffic to unknown IP"
+                    timestamp:
+                      type: string
+                      format: date-time
+                      example: "2025-06-10T12:45:00Z"
