@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/flow")
+@RequestMapping("/flows")
 public class FlowController {
     static final List<Alert> alerts = new ArrayList<>();
 
