@@ -12,10 +12,10 @@
 ## 📁 Repository Structure
 
 IoTInsight/
-├── backend-api/ # Spring Boot backend
-├── edge-agent/ # Python scapy-based agent
-├── frontend/ # React alerts UI
-├── docs/ # OpenAPI spec (api.yaml)
+├── backend-api/ Spring Boot backend
+├── edge-agent/ Python scapy-based agent
+├── frontend/ React alerts UI
+├── docs/ OpenAPI spec (api.yaml)
 └── README.md
 
 
